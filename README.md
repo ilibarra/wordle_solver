@@ -27,7 +27,9 @@ Below, there is a simulation to test both 1, 2, and 3, with two public dictionar
 So far, tests using 500 random words, indicate that positional frequencies are most relevant for best next guess selection (i.e. low number of mean guesses). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall. This trend could change in case there is a bug in the code, or a better strategy is based on the words complexity and co-variation in the dictionary.
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" alt=“Benchmarking” id=“bg” width=“200px” height=“600px” /></a>
-(blue = median, red = mean)
+
+
+*blue line = median, red line = mean*
 
 This is the same analysis, across dictionaries of lengths 3, 4, and 5. Overall, trends do not indicate that co-variation improves results.
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmark_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmark_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
