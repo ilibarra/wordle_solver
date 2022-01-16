@@ -32,7 +32,7 @@ So far, tests using 500 random words, indicate that positional frequencies are m
 *blue line = median, red line = mean*
 
 This is the same analysis, across dictionaries of lengths 3, 4, and 5. Overall, trends do not indicate that co-variation improves results.
-<a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmark_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmark_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
+<a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
 
 
 
