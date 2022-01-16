@@ -32,17 +32,19 @@ So far, tests using 500 random words, indicate that positional frequencies are m
 *blue line = median, red line = mean*
 
 This is the same analysis, across dictionaries of lengths 3, 4, and 5. Overall, trends do not indicate that co-variation improves results.
+
+
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
 
 
 
-#### Usage
-First, run the daily.py script without any input guesses. You will get the most likely guess, given the input strategy and dictionary.
+### Usage on daily game
+First, run the `daily.py` Python script with an empty string for guesses and rules (`-g`). You will get the most likely guess, given the input strategy and dictionary. Also, heatmaps are saved showing the current clustering of remaining words.
 ```
-python daily.py -d american_5 --strategy posfreqcovar
+python daily.py -g '' -r '' -d american_5 --strategy posfreqcovar
 ```
 
-Assuming as guess the word BRINY, then query that into Wordle. You will get rules based on matches to the word of the day, that you can use as input in the script (0 = no match, 1 = word match, 2 = position match). Additional, heatmaps with the visualization above will be saved in-out, so you can visualize the current options.
+Assuming as best guess the word BRINY, then query that into Wordle. You will get rules based on matches to the word of the day, that you can use as input in the script (0 = no match, 1 = word match, 2 = position match). Additional, heatmaps with the visualization above will be saved in-out, so you can visualize the current options.
 ```
 python daily.py -g "BRINY" --rules "01000" -d american_5 --strategy posfreqcovar
 ```
