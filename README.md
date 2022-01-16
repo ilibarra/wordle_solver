@@ -1,4 +1,4 @@
-## Wordle Solver - Strategies 
+## Solver and comparison of strategies for Wordle
 
 ### Motivation
 The goal of this repository is to compare, in terms of performance, strategies that minimize the number of guesses needed to find a word match in Wordle. A script for general usage on is also available.
@@ -10,22 +10,29 @@ While playing [Wordle's word of the day](https://www.powerlanguage.co.uk/wordle/
 
 Among possible strategies, one could try:
 
-a. Letter frequency, position-independent.
-b. Letter frequency per position, position-specific.
-c. Letter frequency per position, plus letter co-variation between positions.
-d. Discarding words submitted at previous days (only via scripts)
+1. Letter frequency, position-independent.
+2. Letter frequency per position, position-specific.
+3. Letter frequency per position, plus letter co-variation between positions.
+4. Brute force mapping of best word matched similar to [Tyler Gaiel's implementation](https://medium.com/@tglaiel/the-mathematically-optimal-first-guess-in-wordle-cbcb03c19b0a) (*pending*)
+5. Discarding words submitted on previous days (only via scripts)
 
-The reason I implemented this was to test option *c. letter co-variation among positions*. Visually, this can be described by checking the low overlap of E at positions 2 and 3, which is an indicator that those two letters are so co-occurring together, and might be used simultaneously to guide the selection of the best next guess. For more details, see [mutual information](https://en.wikipedia.org/wiki/Mutual_information).
+The reason I implemented this was to test option *3. letter co-variation among positions*. Visually, this can be described by checking the low overlap of E at positions 2 and 3, which is an indicator that those two letters are so co-occurring together, and might be used simultaneously to guide the selection of the best next guess. For more details, see [mutual information](https://en.wikipedia.org/wiki/Mutual_information).
 
-Below, there is a simulation to test both a, b, and c, in the next dictionaries. I am not sure which is the official dictionary that Wordle uses, but as the Linux one has more words I am using that one by default.
+Below, there is a simulation to test both 1, 2, and 3, with two public dictionaries. I am not sure which is the official dictionary that Wordle uses, but as the Linux one has more words I am using that one by default.
 - [Linux American English ~6,000 words](data/american-english).
 - [Wordle dictionary ~2,000 words](https://github.com/hannahcode/wordle/blob/main/src/constants/wordlist.ts),
 
-### Simulation results
+### Results
 
-So far, strategies that use letter positional frequency as main criteria for selection are having the lower number of guesses. Letter co-variation among positions, so far, is not conferring an positive, and it reduces the overall performance in terms of guesses. This trend could change in case there is a bug in the code, or a better strategy is based on the words complexity and co-variation in the dictionary.
+So far, tests using 500 random words, indicate that positional frequencies are most relevant for best next guess selection (i.e. low number of mean guesses). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall. This trend could change in case there is a bug in the code, or a better strategy is based on the words complexity and co-variation in the dictionary.
 
-<a href="https://github.com/ilibarra/wordle_solver/blob/main/data/benchmark_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/benchmark_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
+<a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" alt=“Benchmarking” id=“bg” width=“200px” height=“600px” /></a>
+(blue = median, red = mean)
+
+This is the same analysis, across dictionaries of lengths 3, 4, and 5. Overall, trends do not indicate that co-variation improves results.
+<a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmark_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmark_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
+
+
 
 #### Usage
 First, run the daily.py script without any input guesses. You will get the most likely guess, given the input strategy and dictionary.
@@ -33,7 +40,7 @@ First, run the daily.py script without any input guesses. You will get the most 
 python daily.py -d american_5 --strategy posfreqcovar
 ```
 
-Assuming a guess BRINY query that into Wordle. Then you will get rules based on matches back, that you can input into the script
+Assuming as guess the word BRINY, then query that into Wordle. You will get rules based on matches to the word of the day, that you can use as input in the script (0 = no match, 1 = word match, 2 = position match). Additional, heatmaps with the visualization above will be saved in-out, so you can visualize the current options.
 ```
 python daily.py -g "BRINY" --rules "01000" -d american_5 --strategy posfreqcovar
 ```

@@ -134,7 +134,7 @@ def infer(words, select_by, sort_ascending=False, last_guesses=set(), log=False)
     best_guess = None
     # print('applying rule %s' % select_by)
     if select_by in {'posfreqcovar', 'posfreq'}:
-        # print('posfreq...')
+        # print('posfreq...')TABOO 
         res = get_highest_freq_word(df, n_letters, use_covariation='covar' in select_by)            
         res = res[~res['guess'].isin(last_guesses)]
         if log:
