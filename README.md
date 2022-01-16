@@ -6,7 +6,7 @@ The goal of this repository is to compare, in terms of performance, strategies t
 ### Introduction
 While playing [Wordle's word of the day](https://www.powerlanguage.co.uk/wordle/), several strategies and dictionaries can be used to guide the selection of a best next guesses. To describe strategies, in the example below, the target word is JEWE. In the current iteration and after an initial guess, we ended up with 10 possible words.
 
-<a href="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" alt="Clustering example" id="bg" width="330px" height="450px" /></a>
+<a href="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" alt="Clustering example" id="bg" width="330px" height="550px" /></a>
 
 Among possible strategies, one could try:
 
