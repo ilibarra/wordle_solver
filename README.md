@@ -25,7 +25,7 @@ Below, there is a simulation to test both a, b, and c, in the next dictionaries.
 
 So far, strategies that use letter positional frequency as main criteria for selection are having the lower number of guesses. Letter co-variation among positions, so far, is not conferring an positive, and it reduces the overall performance in terms of guesses. This trend could change in case there is a bug in the code, or a better strategy is based on the words complexity and co-variation in the dictionary.
 
-<a href="https://github.com/ilibarra/wordle_solver/blob/main/data/benchmarking_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/benchmarking_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
+<a href="https://github.com/ilibarra/wordle_solver/blob/main/data/benchmark_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/benchmark_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
 
 #### Usage
 First, run the daily.py script without any input guesses. You will get the most likely guess, given the input strategy and dictionary.
