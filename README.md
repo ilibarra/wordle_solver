@@ -59,5 +59,5 @@ From here, you can continue until getting a solution (probably 1-2 more guesses,
 If you think there could be additional strategies to test, reach out! Have fun!
 
 **Troubleshooting**: Please open an [issue](https://github.com/ilbarra/wordle_solver/issues).
-**License**: [MIT](https://github.com/ilibarra/wordle_solver/blob/main/LICENSE).
+**License**: [GNU](https://github.com/ilibarra/wordle_solver/blob/main/LICENSE).
 
