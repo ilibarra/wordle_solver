@@ -35,6 +35,10 @@ This is the same analysis, across dictionaries of length 3, 4 and 5. Overall, tr
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
 
+#### Next steps
+
+- Addition of best guesses based on brute force.
+- General debugging.
 
 #### Usage
 First, run the daily.py script without any input guesses. You will get the most likely guess, given the input strategy and dictionary. Heatmaps saving clustering of remainings words will be saved in `out`.
