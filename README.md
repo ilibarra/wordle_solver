@@ -4,7 +4,7 @@
 
 The goal of this repo is to compare, in terms of performance at getting reliable solutions to wordle.
 
-<a href="https://github.com/ilibarra/wordle_solver/data/clustering_example.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/data/clustering_example.png" alt="Clustering example" id="bg" width="280px" height="45px" /></a>
+<a href="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" alt="Clustering example" id="bg" width="280px" height="45px" /></a>
 
 
 Example of solutions:
