@@ -24,7 +24,7 @@ Below, there is a simulation to test both 1, 2, and 3, with two public dictionar
 
 ### Results
 
-So far, tests using 500 random words, indicate that positional frequencies are most relevant for best next guess selection (i.e. low number of mean guesses). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall. This trend could change in case there is a bug in the code, or a better strategy is based on the words complexity and co-variation in the dictionary.
+So far, tests using 500 random words, indicate that positional frequencies are most relevant for best next guess selection (i.e. lowest median guesses). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall (higher median, lower mean). This trend could change in case there is a bug in the code, full test, or a better strategy is based on the words complexity and co-variation in the dictionary.
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" alt=“Benchmarking” id=“bg” width=“200px” height=“600px” /></a>
 
@@ -38,7 +38,6 @@ This is the same analysis, across dictionaries of length 3, 4 and 5. Overall, tr
 #### Next steps
 
 - Addition of best guesses based on brute force.
-- General debugging.
 
 #### Usage
 First, run the daily.py script without any input guesses. You will get the most likely guess, given the input strategy and dictionary. Heatmaps saving clustering of remainings words will be saved in `out`.
