@@ -40,7 +40,7 @@ This is the same analysis, across dictionaries of length 3, 4 and 5. Overall, tr
 - Addition of best guesses based on brute force.
 
 #### Usage
-First, run the daily.py script without any input guesses (`-g`) and rules (`-r`). You will get the most likely guess, given the input strategy (`--strategy`) and dictionary (`--dictionory`). Heatmaps showing clustering of remainings words are saved in `out`.
+First, run the daily.py script without any input guesses (`-g`) and rules (`-r`). You will get the most likely guess, given the input strategy (`--strategy`) and dictionary (`--d`). Heatmaps showing clustering of remainings words are saved in `out`.
 ```
 python daily.py -g '' -r '' -d american_5 --strategy posfreqcovar
 ```
