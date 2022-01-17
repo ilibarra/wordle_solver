@@ -13,7 +13,7 @@ Among possible strategies, one could try:
 1. Letter frequency, position-independent.
 2. Letter frequency per position, position-specific.
 3. Letter frequency per position, plus letter co-variation between positions.
-4. Brute force mapping of best word matched similar to [Tyler Gaiel's implementation](https://medium.com/@tglaiel/the-mathematically-optimal-first-guess-in-wordle-cbcb03c19b0a) (*pending*)
+4. Brute force mapping of best word matched similar to [Tyler Gaiel's implementation](https://medium.com/@tglaiel/the-mathematically-optimal-first-guess-in-wordle-cbcb03c19b0a) (*pending*).
 5. Discarding words submitted at previous days (only via scripts)
 
 I implemented this to test option *3. letter co-variation among positions*. Visually, this can be described by checking the low overlap of E at positions c.3 and c.4. This is an indicator that those two letters are not co-occurring together, and might be used simultaneously to guide the selection of the best next guess. For more details, see [mutual information](https://en.wikipedia.org/wiki/Mutual_information).
@@ -24,13 +24,13 @@ Below, there is a simulation to test both 1, 2, and 3, with two public dictionar
 
 ### Results
 
-So far, tests using 500 random words, indicate that positional frequencies are most relevant for best next guess selection (i.e. lowest median guesses). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall (higher median, lower mean). This trend could change in case there is a bug in the code, full test, or a better strategy is based on the words complexity and co-variation in the dictionary.
+Tests using all words from the dictionaries indicate that overall letter frequencies (*wordfreq*) are the most relevant criteria for best next guess selection (i.e. lowest median guesses). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall (lowest mean, ~3.68). This trend could change in case there is a bug in the code, or a better strategy changes based on the co-variation complexity of words in the dictionary.
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" alt=“Benchmarking” id=“bg” width=“200px” height=“600px” /></a>
 
 *(blue line = median, red line = mean)*
 
-This is the same analysis, across dictionaries of length 3, 4 and 5. Overall, trends do not indicate that co-variation improves results.
+This is the same analysis, across dictionaries of length 3, 4 and 5. Overall, trends do not indicate that co-variation improves results. The strategy *wordfreq* seems to repeatedly word well.
 
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_results.png" alt=“Benchmarking” id=“bg” width=“600px” height=“300px” /></a>
