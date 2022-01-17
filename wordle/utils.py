@@ -387,7 +387,7 @@ def load_dictionaries():
     df_by_dictionary = {}
     for n_letters in range(3, 6):
         for name, path in zip(['wordle', 'american'], ['data/wordle_list.txt', 'data/american-english']):
-            words = [r.strip() for r in open('data/wordle_list.txt')]
+            words = [r.strip() for r in open(path)]
             words = [r.upper() for r in words if len(r) == 5 and not '\'' in r]
             words = [unidecode.unidecode(w) for w in words]
             if n_letters < 5:

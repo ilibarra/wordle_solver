@@ -29,9 +29,14 @@ if __name__=='__main__':
     remaining_words = words_by_dictionary[args.dictionary]
     
     if len(previous) > 0:
-        remaining_words = list(set(remaining_words) - set(previous))
-    
+        remaining_words = list(set(remaining_words) - set(previous))  
+
+#     for k in words_by_dictionary:
+#         print(k, len(words_by_dictionary[k]))
+#     print('dictionary: %s' % args.dictionary)
+
     print('# words in dictionary:', len(remaining_words))
+    
     
     rules_encoded = []
     for i, w in enumerate(guesses):
@@ -39,6 +44,9 @@ if __name__=='__main__':
         curr_rules = wordle.get_rules(w, rules[i])
         # print(curr_rules)
         remaining_words = wordle.select_multiple_rules(remaining_words, curr_rules)
+        if len(remaining_words) < 30:
+            print(remaining_words)
+
         rules_encoded += curr_rules
         print('# remaining words in dictionary:', len(remaining_words))
         # print(remaining_words)
@@ -50,4 +58,7 @@ if __name__=='__main__':
     print('Heatmaps saved at out')
     
     guess = wordle.infer(remaining_words, args.strategy, sort_ascending=False)
-    print('best guess (with strategy %s): %s' % (args.strategy, guess))
+    print('next guess (with strategy %s): %s' % (args.strategy, guess))
+    
+    if len(remaining_words) == 2:
+        print('WARNING: There are only two words left. At this point, most strategies are guessing (50/50).')
