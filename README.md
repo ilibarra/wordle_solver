@@ -4,7 +4,7 @@
 The goal of this repository is to compare, in terms of performance, strategies that minimize the number of guesses needed to find a word match in Wordle. A script for general usage on is also available.
 
 ### Introduction
-While playing [Wordle's word of the day](https://www.powerlanguage.co.uk/wordle/), several strategies and dictionaries can be used to guide the selection of a best next guesses. To describe strategies, in the example below, the target word is JEWE. In the current iteration and after an initial guess, we ended up with 10 possible words.
+While playing [Wordle's word of the day](https://www.powerlanguage.co.uk/wordle/), several strategies and dictionaries can be used to guide the selection of a best next guesses. To describe strategies, in the example below, the target word is **INTER**. In the current iteration and after an initial guess, we ended up with 10 possible words.
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" alt="Clustering example" id="bg" width="330px" height="550px" /></a>
 
@@ -16,7 +16,7 @@ Among possible strategies, one could try:
 4. Brute force mapping of best word matched similar to [Tyler Gaiel's implementation](https://medium.com/@tglaiel/the-mathematically-optimal-first-guess-in-wordle-cbcb03c19b0a) (*pending*).
 5. Discarding words submitted at previous days (only via scripts)
 
-I implemented this to test option *3. letter co-variation among positions*. Visually, this can be described by checking the low overlap of E at positions c.3 and c.4. This is an indicator that those two letters are not co-occurring together, and might be used simultaneously to guide the selection of the best next guess. For more details, see [mutual information](https://en.wikipedia.org/wiki/Mutual_information).
+I implemented this to test option *3. letter co-variation among positions*. Visually, this can be described by checking the low overlap of E at columns 4 and 5. This is an indicator that those two letters are not co-occurring together, and might be used simultaneously to guide the selection of the best next guess. For more details, see [mutual information](https://en.wikipedia.org/wiki/Mutual_information).
 
 Below, there is a simulation to test both 1, 2, and 3, with two public dictionaries. I am not sure which is the official dictionary that Wordle uses, but as the Linux one has more words I am using that one by default.
 - [Linux American English ~6,000 words](data/american-english).
