@@ -1,9 +1,9 @@
+
 from sklearn.metrics import mutual_info_score
 import unidecode
 import itertools
 import matplotlib.pyplot as plt
 import seaborn as sns
-
 import scipy
 import scipy.cluster.hierarchy as hc
 
@@ -318,7 +318,6 @@ import os
 import random
 import tempfile
 from os.path import join
-import screg as scr
 
 class ThreadingUtils:
     @staticmethod
