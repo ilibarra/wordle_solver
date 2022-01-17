@@ -24,7 +24,7 @@ Below, there is a simulation to test both 1, 2, and 3, with two public dictionar
 
 ### Results
 
-Tests using all words from the dictionaries indicate that overall letter frequencies (*wordfreq*) are the most relevant criteria for best next guess selection (i.e. lowest median guesses). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall (lowest mean, ~3.68). This trend could change in case there is a bug in the code, or a better strategy changes based on the co-variation complexity of words in the dictionary.
+Tests using all words from the dictionaries indicate that overall letter frequencies (*wordfreq*) are the most relevant criteria for best next guess selection (lowest mean guesses, ~3.68). Letter co-variation among positions, so far, is not conferring a positive advantage, and it seems to perform worse overall. This trend could change in case there is a bug in the code, or a better strategy changes based on the co-variation complexity of words in the dictionary.
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/out/benchmarking_5letters.png" alt=“Benchmarking” id=“bg” width=“200px” height=“600px” /></a>
 
