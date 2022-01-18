@@ -14,6 +14,7 @@ if __name__=='__main__':
                         help='strategy to use [wordfreq, posfreq posfreqcovar]')
     parser.add_argument('-d', '--dictionary', required=False, default='wordle_5',
                         help='word dictionary')
+    parser.add_argument('--plot', required=False, default=False, action='store_true', help='plotting or not')
     parser.add_argument('-p', '--previous', required=False, default='',
                         help='previous guesses from previous days to discard')
 
@@ -54,8 +55,11 @@ if __name__=='__main__':
     
     basename = str('-'.join([args.dictionary, "_".join(guesses), '_'.join(rules)]))
     out_basename = 'out/' + basename
-    wordle.plot_words(remaining_words, out_basename=out_basename, plot=True)
-    print('Heatmaps saved at out')
+    
+    if int(args.plot):
+        print('plotting')
+        wordle.plot_words(remaining_words, out_basename=out_basename, plot=True)
+        print('Heatmaps saved at out')
     
     guess = wordle.infer(remaining_words, args.strategy, sort_ascending=False)
     print('next guess (with strategy %s): %s' % (args.strategy, guess))

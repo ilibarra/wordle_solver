@@ -40,19 +40,19 @@ This is the same analysis, across dictionaries of length 3, 4 and 5. Overall, tr
 - Addition of best guesses based on brute force.
 
 #### Usage
-First, run the daily.py script without any input guesses (`-g`) and rules (`-r`). You will get the most likely guess, given the input strategy (`--strategy`) and dictionary (`--d`). Heatmaps showing clustering of remainings words are saved in `out`.
+First, run the daily.py script without any input guesses (`-g`) and rules (`-r`). You will get the most likely guess, given the input strategy (`--strategy`) and dictionary (`--d`). If using the option `--plot`, heatmaps saved in `out`.
 ```
 python daily.py -g '' -r '' -d american_5 --strategy posfreqcovar
 ```
 
 Assuming as guess the word BRINY, then query that into Wordle. You will get rules based on matches to the word of the day, that you can use as input in the script (0 = no match, 1 = word match, 2 = position match). Additional, heatmaps with the visualization above will be saved in out, so you can visualize the current options.
 ```
-python daily.py -g "BRINY" --rules "01000" -d american_5 --strategy posfreqcovar
+python daily.py -g "BRINY" --rules "01000" -d american_5 --strategy posfreqcovar --plot
 ```
 
 Assuming the next word is SERUM, one match in position one
 ```
-python daily.py -g "BRINY,SERUM" --rules "01000,20100" -d american_5 --strategy posfreqcovar
+python daily.py -g "BRINY,SERUM" --rules "01000,20100" -d american_5 --strategy posfreqcovar --plot
 ```
 From here, you can continue until getting a solution (probably 1-2 more guesses, max.)
 
