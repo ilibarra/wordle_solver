@@ -4,7 +4,7 @@
 The goal of this repository is to compare, in terms of performance, strategies that minimize the number of guesses needed to find a word match in Wordle. A script for general usage on is also available.
 
 ### Introduction
-While playing [Wordle's word of the day](https://www.powerlanguage.co.uk/wordle/), several strategies and dictionaries can be used to guide the selection of a best next guesses. To describe strategies, in the example below, the target word is **INTER**. In the current iteration and after an initial guess, we ended up with 10 possible words.
+While playing [Wordle's word of the day](https://www.powerlanguage.co.uk/wordle/), several strategies and dictionaries can be used to guide the selection of a best next guesses. To describe strategies, in the example below, the target word is **INTER**. In the current iteration and after an initial guess, we ended up with a bunch of possible options.
 
 <a href="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" target="_blank"><img src="https://github.com/ilibarra/wordle_solver/blob/main/data/clustering_example.png" alt="Clustering example" id="bg" width="330px" height="550px" /></a>
 
