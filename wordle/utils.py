@@ -20,6 +20,13 @@ def get_rules(query_word, target_or_code):
             else:
                 rules.append([qi, -1, False])            
         i += 1
+        
+    # for letters with letter duplicates,
+    # remove all following rules with -1 after one match with 2 has bee previously found
+    rules = sorted(rules, key= lambda r: -r[2])
+    letters_position_match = {r[0] for r in rules if r[2] == True and r[1] != -1}
+    rules = [r for r in rules if not (r[0] in letters_position_match and r[1] == -1 and r[2] == False)]
+
     return rules
 
 def select_one_rule(words, rule):
@@ -28,19 +35,18 @@ def select_one_rule(words, rule):
         return [w for w in words if ((w[position] == letter) if position != -1 else letter in w)]
     return [w for w in words if ((w[position] != letter) if position != -1 else letter not in w)]
 
-def select_multiple_rules(words, rules, log=False):
+def select_multiple_rules(remaining_words, rules, log=False):
     if log:
-        print('# query words', len(words))
-    remaining_words = [w for w in words]
+        print('# query words', len(remaining_words))
     for ri, r in enumerate(rules):
         remaining_words = select_one_rule(remaining_words, r)
-    if log:
-        print('after rule %s: %i words' % (r, len(remaining_words)))
+        if log:
+            print('after rule %s: %i words' % (r, len(remaining_words)))
     return remaining_words
 
-def get_guesses(words, challenge_word, queries):
+def get_guesses(words, challenge_word, guesses):
     words_by_guess = {}
-    for wi, guess in enumerate(queries):
+    for wi, guess in enumerate(guesses):
         # if wi % 100 == 0:
         #     print(wi)
         words_by_guess[guess] = select_multiple_rules(words, get_rules(guess, challenge_word))
